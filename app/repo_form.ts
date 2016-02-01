@@ -14,7 +14,6 @@ export class RepoForm {
   task: string = '';
   addRepo() {
     if (this.task) {
-      // This is where the lookup for new repos goes
       this.newTask.next({
         text:this.task,
         issues: Math.random()*10,
