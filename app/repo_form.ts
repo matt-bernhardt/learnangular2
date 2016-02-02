@@ -1,5 +1,6 @@
 import {Component, Output, EventEmitter} from 'angular2/core';
 import {Repo} from './repo';
+
 @Component({
   selector: 'repo-form',
   template: `
@@ -15,9 +16,10 @@ export class RepoForm {
   addRepo() {
     if (this.task) {
       this.newTask.next({
-        text:this.task,
+        text: this.task,
         issues: Math.random()*10,
-        status:'active'
+        status: 'active',
+        active: true
       });
     }
     this.task = '';

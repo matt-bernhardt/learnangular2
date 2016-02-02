@@ -2,7 +2,6 @@ import {Component} from 'angular2/core';
 import {Repo} from './repo';
 import {RepoList} from './repo_list';
 import {RepoForm} from './repo_form';
-import {RepoSummary} from './repo_summary';
 
 @Component({
   selector: 'repo-app',
@@ -12,11 +11,10 @@ import {RepoSummary} from './repo_summary';
     <p>Use this form to add or remove GitHub repositories from the display.</p>
     <p><span>Displaying {{remaining}} of {{repos.length}} identified repositories<br></span>
     [ <a (click)="archive()">remove inactive</a> ]</p>
-    <repo-summary></repo-summary>
     <repo-list [repos]="repos"></repo-list>
     <repo-form (newTask)="addRepo($event)"></repo-form>`,
   styles:['a { cursor: pointer; cursor: hand; }'],
-  directives: [RepoSummary, RepoList, RepoForm]
+  directives: [RepoList, RepoForm]
 })
 export class RepoApp {
 
@@ -47,7 +45,7 @@ export class RepoApp {
     url = 'https://api.github.com/repos/' + task.text;
     console.log(url);   
     // fake the lookup here
-    task.issues = 3;
+    task.issues = 4;
   }
 
   addRepo(task: Repo) {
